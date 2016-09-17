@@ -1,6 +1,6 @@
 <Query Kind="Expression">
   <Connection>
-    <ID>36e897cc-cb07-416c-a8f7-9980167fcacb</ID>
+    <ID>72f9a392-3b40-4391-b9df-7618e9f9f3b8</ID>
     <Persist>true</Persist>
     <Server>.</Server>
     <Database>Chinook</Database>
@@ -75,3 +75,10 @@ from a in Albums
 ;
 
 //The most popular Media Type for the Tracks (which MediaType has the most tracks)
+from m in MediaTypes
+	where m.Tracks.Count() == (from t in MediaTypes select t.Tracks.Count()).Max()
+	select new
+	{
+		m.Name,
+		Max = m.Tracks.Count()
+	}
