@@ -1,6 +1,6 @@
 <Query Kind="Program">
   <Connection>
-    <ID>5e95376f-67d2-4ffc-a0c3-809b933667a9</ID>
+    <ID>a955ba73-5713-4ec5-9085-8a23bad5ca90</ID>
     <Persist>true</Persist>
     <Server>.</Server>
     <Database>eRestaurant</Database>
@@ -38,12 +38,12 @@ void Main()
 //					&& b.BillDate.Month = paramMonth
 //					&& b.BillDate.Year = paramYear
 				select new BillItemSummary
-					{
-						BillID = b.BillID,
-						BillDate = b.BillDate,
-						TableID = b.TableID,
-						Total = b.BillItems.Sum(bi => bi.SalePrice * bi.Quantity)
-					}).ToList()
+				{
+					BillID = b.BillID,
+					BillDate = b.BillDate,
+					TableID = b.TableID,
+					Total = b.BillItems.Sum(bi => bi.SalePrice * bi.Quantity)
+				}).ToList()
 		};
 	
 	waiterBills.Dump();

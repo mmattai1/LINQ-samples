@@ -1,6 +1,6 @@
 <Query Kind="Statements">
   <Connection>
-    <ID>5e95376f-67d2-4ffc-a0c3-809b933667a9</ID>
+    <ID>a955ba73-5713-4ec5-9085-8a23bad5ca90</ID>
     <Persist>true</Persist>
     <Server>.</Server>
     <Database>eRestaurant</Database>
@@ -32,11 +32,11 @@ var waiterBills = from w in Waiters
 		BillInfo = (from b in w.Bills
 			where b.BillItems.Count() > 0
 			select new
-				{
-					BillID = b.BillID,
-					BillDate = b.BillDate,
-					TableID = b.TableID,
-					Total = b.BillItems.Sum(bi => bi.SalePrice * bi.Quantity)
-				})
+			{
+				BillID = b.BillID,
+				BillDate = b.BillDate,
+				TableID = b.TableID,
+				Total = b.BillItems.Sum(bi => bi.SalePrice * bi.Quantity)
+			})
 	};
 waiterBills.Dump();
